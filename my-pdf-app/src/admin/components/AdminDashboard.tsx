@@ -15,14 +15,18 @@ import {
 import { jsPDF } from "jspdf";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../../redux/store/authslice/userSlice";
+import { useDispatch } from "react-redux";
 
 const AdminDashboard = () => {
   const [users, setUsers] = useState<any[]>([]);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     try {
-      let storedUsers = JSON.parse(localStorage.getItem("user") || "[]");
+      let storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+      console.log("Stored users:", storedUsers);
 
       if (!Array.isArray(storedUsers)) {
         storedUsers = [storedUsers];
@@ -51,7 +55,7 @@ const AdminDashboard = () => {
 
   const handleLogout = () => {
     toast.success("Logged out successfully");
-    // Optional: clear session-related state
+    dispatch(logout());
     navigate("/login");
   };
 

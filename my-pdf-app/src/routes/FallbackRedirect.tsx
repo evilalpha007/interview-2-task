@@ -1,4 +1,3 @@
-// src/routes/FallbackRedirect.tsx
 import { Navigate } from "react-router-dom";
 import { getCurrentUser } from "../utils/auth";
 

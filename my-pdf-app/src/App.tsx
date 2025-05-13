@@ -6,7 +6,6 @@ import AdminDashboard from "./admin/components/AdminDashboard";
 import Payment from "./payment/Payment";
 import { Toaster } from "react-hot-toast";
 
-// Route wrappers
 import ProtectedRoute from "./routes/ProtectedRoute";
 import PublicRoute from "./routes/PublicRoute";
 import FallbackRedirect from "./routes/FallbackRedirect";
